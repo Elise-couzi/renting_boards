@@ -1,7 +1,19 @@
 <div class = "container">
-  <%= simple_form_for [ @board, @user, @booking ] do |f| %>
-  <%= f.input :start_at %>
-  <%= f.input :end_at %>
-  <%= f.submit "Book your board", class: "btn btn-primary" %>
-  <% end %>
+<h1>How many days do you want to book this board ?</h1>
+  <div> 
+    <%= @board.name %>
+    <%= @board.description %>
+    <%= @board.price %> €
+    <%= @board.images %>
+    <%= @user %> user here
+  </div>
+
+    <div class = "cards">
+    <%= simple_form_for [ @board, @booking ] do |f| %>
+    <%= f.input :start_at %>
+    <%= f.input :end_at %>
+    <%= f.submit "Book your board", class: "btn btn-primary" %>
+    <% end %>
+    </div>
+
 </div>
