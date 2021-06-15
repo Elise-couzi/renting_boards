@@ -25,10 +25,10 @@ boards5 = Board.create!(name: 'GLOBE Big Blazer 32', description: 'The Big Blaze
 boards6 = Board.create!(name: 'BURTON Hideway', description: 'Un snowboard avec une direction optimale.', price: 400, user: vaness)
 puts "#{Board.count} planches ajoutées"
 
-bookings1 = Booking.create!([{ start_at: Date.new(2021, 8, 02) }, { end_at: Date.new(2022, 8, 02) }, { state: 'acceptée' }, { user: vivi }, { board: boards3 }])
-bookings2 = Booking.create!([{ start_at: Date.new(2021, 8, 02) }, { end_at: Date.new(2021, 9, 02) }, { state: 'refusée' }, { user: flav }, { board: boards6 }])
-bookings3 = Booking.create!([{ start_at: Date.new(2021, 8, 02) }, { end_at: Date.new(2021, 10, 02) }, { state: 'en attente' }, { user: vaness }, { board: boards2 }])
-bookings3 = Booking.create!([{ start_at: Date.new(2021, 8, 02) }, { end_at: Date.new(2021, 8, 20) }, { state: 'en attente' }, { user: lapetitecouzi }, { board: boards2 }])
+bookings1 = Booking.create!(start_at: Date.new(2021, 8, 02), end_at: Date.new(2022, 8, 02), state: 'acceptée', user: vivi, board: boards3)
+bookings2 = Booking.create!(start_at: Date.new(2021, 8, 02), end_at: Date.new(2021, 9, 02), state: 'refusée', user: flav, board: boards6)
+bookings3 = Booking.create!(start_at: Date.new(2021, 8, 02), end_at: Date.new(2021, 10, 02), state: 'en attente', user: vaness, board: boards2)
+bookings3 = Booking.create!(start_at: Date.new(2021, 8, 02), end_at: Date.new(2021, 8, 20), state: 'en attente', user: lapetitecouzi, board: boards2)
 puts "#{Booking.count} réservations ajoutées"
 
 
