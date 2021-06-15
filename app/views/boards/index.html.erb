@@ -1,7 +1,7 @@
 <div class="container">
 
 <h1>Les Boards</h1>
-<p style="text-align: center"><%= link_to '> Ajoute une planche à louer <', new_board_path, class: 'btn btn-flat' %></p>
+<p><%= link_to '+ Ajoute une planche à louer', new_board_path, class: 'btn btn-flat' %></p>
 
   <% @boards.each do |board| %>
     <%= link_to board_path(board) do %>
