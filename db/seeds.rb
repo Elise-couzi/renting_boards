@@ -17,12 +17,12 @@ flav = User.create!(username: 'flav', firstname: 'Flavie', lastname: 'Leroy', em
 vaness = User.create!(username: 'vaness', firstname: 'Vanessa', lastname: 'Tsang', email: 'vanessa@email.com', password: 'azerty')
 puts "#{User.count} utilisateurs ajoutés"
 
-boards1 = Board.create!(name: 'OXELO Longboard Dancing 100 Forest', description: 'Idéale pour les débutant(es) en dancing longboard.', price: 110, user: lapetitecouzi)
-boards2 = Board.create!(name: 'YOW Aritz Aranburu 30.5″', description: 'Les sensations du surf sur un skate.', price: 305, user: vivi)
-boards3 = Board.create!(name: 'HONU Mini malibu 8', description: 'Finition boisée et vernie. Parfait pour débuter le surf dans de petites conditions.', price: 570, user: flav)
-boards4 = Board.create!(name: 'CATCH SURF Heritage Retro Fish', description: 'Un deck personnalisé Catch Surf-texturé et un Single-Fin ULTRA Performance pour un mélange parfait de style old-school et de performances modernes.', price: 350, user: lapetitecouzi)
-boards5 = Board.create!(name: 'GLOBE Big Blazer 32', description: 'The Big Blazer in colour Bamboo/Dotted is a GLOBE medium length diamond-tail cruiser with built-in bottle opener and soft conical wheels.', price: 150, user: flav)
-boards6 = Board.create!(name: 'BURTON Hideway', description: 'Un snowboard avec une direction optimale.', price: 400, user: vaness)
+boards1 = Board.create!(name: 'OXELO Longboard Dancing 100 Forest', description: 'Idéale pour les débutant(es) en dancing longboard.', price: 110, user: lapetitecouzi, images: 'https://images.unsplash.com/photo-1478427433968-28045906c1dd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80')
+boards2 = Board.create!(name: 'YOW Aritz Aranburu 30.5″', description: 'Les sensations du surf sur un skate.', price: 305, user: vivi, images: 'https://images.unsplash.com/photo-1478427433968-28045906c1dd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80')
+boards3 = Board.create!(name: 'HONU Mini malibu 8', description: 'Finition boisée et vernie. Parfait pour débuter le surf dans de petites conditions.', price: 570, user: flav, images: 'https://images.unsplash.com/photo-1478427433968-28045906c1dd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80')
+boards4 = Board.create!(name: 'CATCH SURF Heritage Retro Fish', description: 'Un deck personnalisé Catch Surf-texturé et un Single-Fin ULTRA Performance pour un mélange parfait de style old-school et de performances modernes.', price: 350, user: lapetitecouzi, images: 'https://images.unsplash.com/photo-1478427433968-28045906c1dd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80')
+boards5 = Board.create!(name: 'GLOBE Big Blazer 32', description: 'The Big Blazer in colour Bamboo/Dotted is a GLOBE medium length diamond-tail cruiser with built-in bottle opener and soft conical wheels.', price: 150, user: flav, images: 'https://images.unsplash.com/photo-1478427433968-28045906c1dd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80')
+boards6 = Board.create!(name: 'BURTON Hideway', description: 'Un snowboard avec une direction optimale.', price: 400, user: vaness, images: ' rails generate migration AddImagesToBoards images:url')
 puts "#{Board.count} planches ajoutées"
 
 bookings1 = Booking.create!(start_at: Date.new(2021, 8, 02), end_at: Date.new(2022, 8, 02), state: 'acceptée', user: vivi, board: boards3)
