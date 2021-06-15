@@ -1,0 +1,14 @@
+<div class="container">
+<h1>All bookings</h1>
+ <div class="row">
+  <% @bookings.each do |booking| %>
+    <%= link_to booking_path(booking) do %>
+        <%= booking.state %>
+        <%= booking.start_at %>
+        <%= booking.end_at %>
+        <%= booking.user.username %>
+        <%= booking.board.name %>
+        <% end %>
+  <% end %>
+  </div>
+  </div>
