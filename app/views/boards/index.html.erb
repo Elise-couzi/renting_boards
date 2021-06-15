@@ -1,0 +1,16 @@
+<div class="container">
+
+<h1>All boards</h1>
+ <div class="row">
+  <% @boards.each do |board| %>
+    <%= link_to board_path(board) do %>
+        <%= board.name %>
+        <%= board.description %>
+        <%= board.price %>€
+        <% end %>
+  <% end %>
+  </div>
+
+  <%= link_to 'Add a board', new_board_path, class: 'btn btn-primary' %>
+</div>
+
