@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2021_06_15_080758) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +25,6 @@ ActiveRecord::Schema.define(version: 2021_06_15_080758) do
     t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
-
   create_table "bookings", force: :cascade do |t|
     t.datetime "start_at"
     t.datetime "end_at"
@@ -39,8 +36,7 @@ ActiveRecord::Schema.define(version: 2021_06_15_080758) do
     t.index ["board_id"], name: "index_bookings_on_board_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
-
-
+  
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -60,5 +56,4 @@ ActiveRecord::Schema.define(version: 2021_06_15_080758) do
   add_foreign_key "boards", "users"
   add_foreign_key "bookings", "boards"
   add_foreign_key "bookings", "users"
-
 end
