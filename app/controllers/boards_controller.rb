@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @boards = Board.all
@@ -13,8 +14,9 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.new(board_params)
-    @board.save
-    if @board.valid?
+    @user = current_user
+    @board.user = @user
+    if @board.save
       redirect_to board_path(@board)
     else
       render :new
