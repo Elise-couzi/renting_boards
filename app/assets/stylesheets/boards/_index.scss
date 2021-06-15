@@ -15,7 +15,10 @@ h1 {
 .card-product img {
   height: 100%;
   width: 120px;
-  object-fit: cover;
+  object-fit: contain;
+  repeat: no-repeat;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .card-product h2 {
