@@ -1,16 +1,20 @@
 <div class="container">
 
-<h1>All boards</h1>
- <div class="row">
+<h1>Les Boards</h1>
+
+<p style="text-align: center"><%= link_to '> Ajoute une planche à louer <', new_board_path, class: 'btn btn-flat' %></p>
+
   <% @boards.each do |board| %>
     <%= link_to board_path(board) do %>
-        <%= board.name %>
-        <%= board.description %>
-        <%= board.price %>€
-        <% end %>
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2><%= board.name %></h2>
+          <p><%= board.description %></p>
+          <p><%= board.price %>€</p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-  </div>
-
-  <%= link_to 'Add a board', new_board_path, class: 'btn btn-primary' %>
 </div>
 
