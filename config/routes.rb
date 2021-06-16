@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :boards do
     resources :bookings, only: [:new, :create] #destroy?
   end
-  get "/dashboard", to: "dashboard#show"
+  get "/dashboard", to: "dashboards#show"
 
   patch "/validate/:id", to: "bookings#validate"
   patch "/decline/:id", to: "bookings#decline"
