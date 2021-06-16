@@ -1,12 +1,16 @@
 <div class="container">
+  <div style="margin: 50px"></div>
+
   <h1>Add a new board</h1>
 
   <%= simple_form_for @board do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :price %>
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.input :images %>
+    <%= f.submit class: 'btn btn-secondary' %>
   <% end %>
 
-  <div><%= link_to '< Boards', boards_path, class: 'btn btn-flat' %></div>
+  <div style="margin: 50px"></div>
+
 </div>
