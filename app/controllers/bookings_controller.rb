@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
       render :new
     end
   end
-  
+
   private
 
   def booking_params

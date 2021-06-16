@@ -6,7 +6,7 @@
   <% @boards.each do |board| %>
     <%= link_to board_path(board) do %>
       <div class="card-product">
-        <%# <%= image_tag board.images %> 
+        <%= image_tag board.images %>
         <div class="card-product-infos">
           <h2><%= board.name %></h2>
           <p><%= board.description %></p>
