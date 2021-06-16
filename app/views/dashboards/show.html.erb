@@ -15,6 +15,7 @@
       </div>
       <p class="btn btn-info">Statut de ma demande effectuée : <%= booking.state %></p>
     </div>
+    <div style="margin: 20px"></div>
   <% end %>
 </div>
 
@@ -28,17 +29,13 @@
       <div class="card-body">
         <p class="card-text">Ma board en location : <%= booking.board.name %>
         <p class="card-text"> Commande du : <%= booking.start_at %> au : <%= booking.end_at %>
+        </div>
         <p class="btn btn-light">Statut de ma demande reçue : <%= booking.state %>
         </div>
+        <div style="margin: 50px"></div>
       <% end %>
-      </div>
     <% end %>
   </div>
 
-  <div style="margin: 10px"></div>
-  <%= link_to 'Retour sur les boards', boards_path, class: 'btn btn-secondary' %>
-  </div>
-
-  <div style="margin: 50px"></div>
 </div>
 </body>
