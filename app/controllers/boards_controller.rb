@@ -4,6 +4,14 @@ class BoardsController < ApplicationController
 
   def index
     @boards = Board.all
+
+    # geoloc
+    @markers = @boards.geocoded.map do |board|
+      {
+        lat: board.latitude,
+        lng: board.longitude
+      }
+    end
   end
 
   def show; end
