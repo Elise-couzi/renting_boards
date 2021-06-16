@@ -1,10 +1,19 @@
 <div class="container">
-  <h1><%= @board.name %></h1>
-  <p><%= image_tag @board.images, alt: "image", width: 200 %></p>
-  <p><%= @board.description %></p>
-  <p><%= @board.price %></p>
+  <div style="margin: 50px"></div>
 
-  <div><%= link_to '< Boards', boards_path, class: 'btn btn-flat' %></div>
-  <div><%= link_to 'I want this awesome board!', new_board_booking_path(@board), class: 'btn btn-flat' %></div>
+  <div class="row">
+    <div class="col-lg-5">
+      <p><%= image_tag @board.images, alt: "image", width: 400 %></p>
+    </div>
+    <div class="col-lg-7">
+      <h1><%= @board.name %></h1>
+      <h3><%= @board.price %>€</h3>
+      <p style="margin-top: 40px; margin-bottom: 40px"><%= @board.description %></p>
+      <p><%= link_to 'I want this awesome board!', new_board_booking_path(@board), class: 'btn btn-secondary' %></p>
+    </div>
+  </div>
 
+  <div style="margin: 50px"></div>
 </div>
+
+
