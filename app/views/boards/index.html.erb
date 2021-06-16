@@ -3,18 +3,32 @@
 <h1>Les Boards</h1>
 <p><%= link_to '+ Ajoute une planche à louer', new_board_path, class: 'btn btn-flat' %></p>
 
+<div class="row row-cols-lg-3 row-cols-md-2">
   <% @boards.each do |board| %>
-    <%= link_to board_path(board) do %>
-      <div class="card-product">
-        <%= image_tag board.images %>
-        <div class="card-product-infos">
-          <h2><%= board.name %></h2>
-          <p><%= board.description %></p>
-          <p><%= board.price %>€</p>
+
+  <div class="row">
+    <%= link_to board_path(board), class: 'link' do %>
+        <div class="col">
+          <div class="card">
+
+            <%= image_tag board.images, :class => 'card-img-top' %>
+            <div class="card-body">
+              <h5 class="card-title"><%= board.name %></h5>
+              <p class="card-text"><%= board.description %></p>
+              <p class="card-price"><%= board.price %>€</p>
+                <%= link_to board_path(board), method: :delete, data: { confirm: 'Tu veux supprimer ta board ?' }, class: 'card-remove-link' do %>
+                <i class="fas fa-times" style="color: grey"></i>
+                <%end%>
+            </div>
+
+          </div>
+
+
         </div>
-      </div>
     <% end %>
+    </div>
   <% end %>
+  </div>
   <div style="margin: 50px"></div>
 </div>
 

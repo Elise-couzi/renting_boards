@@ -29,6 +29,7 @@ bookings1 = Booking.create!(start_at: Date.new(2021, 8, 02), end_at: Date.new(20
 bookings2 = Booking.create!(start_at: Date.new(2021, 8, 02), end_at: Date.new(2021, 9, 02), state: 'refusée', user: flav, board: boards6)
 bookings3 = Booking.create!(start_at: Date.new(2021, 8, 02), end_at: Date.new(2021, 10, 02), state: 'en attente', user: vaness, board: boards2)
 bookings3 = Booking.create!(start_at: Date.new(2021, 8, 02), end_at: Date.new(2021, 8, 20), state: 'en attente', user: lapetitecouzi, board: boards2)
+bookings3 = Booking.create!(start_at: Date.new(2021, 8, 02), end_at: Date.new(2021, 8, 20), state: 'en attente', user: vivi, board: boards1)
 puts "#{Booking.count} réservations ajoutées"
 
 
