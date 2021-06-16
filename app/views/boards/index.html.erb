@@ -6,7 +6,7 @@
   <% @boards.each do |board| %>
     <%= link_to board_path(board) do %>
       <div class="card-product">
-        <%= image_tag board.images%>
+        <%# <%= image_tag board.images %> 
         <div class="card-product-infos">
           <h2><%= board.name %></h2>
           <p><%= board.description %></p>
@@ -18,3 +18,8 @@
   <div style="margin: 50px"></div>
 </div>
 
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     
