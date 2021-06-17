@@ -7,7 +7,7 @@
 <div class="container">
 <p><%= link_to '+ Ajoute une planche à louer', new_board_path, class: 'btn btn-flat' %></p>
 </div>
-<%= console %>
+
 <div class="container-index">
   <div class="all-cards">
       <% @boards.each do |board| %>
@@ -24,6 +24,7 @@
                 <%= link_to edit_board_path(board), class: "card-edit-link" do %>
                 <i class="fas fa-edit" style="color: grey"></i>
                 <%end%>
+              <%end%>
           <% end %>
         </div>
       <% end %>
