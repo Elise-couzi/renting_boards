@@ -1,0 +1,45 @@
+<body >
+  <div class="container">
+    <div style="margin: 50px"></div>
+
+  <div class="row">
+  <div class="col-lg-6">
+    <h1>Mes demandes :</h1>
+    <% @user.bookings.each do |booking| %>
+      <div class="card-dashboard" style="width: 18rem;">
+      <%= @user.firstname %> <%= @user.lastname %>
+      <%= image_tag booking.board.images, alt: "image", width: 100 %>
+      <div class="card-body">
+        <p class="card-text">La board : <%= booking.board.name %></p>
+        <p class="card-text"><%= booking.board.description %></p>
+        </div>
+        <p class="btn btn-info">Statut de ma demande effectuée : <%= booking.state %></p>
+      </div>
+      <div style="margin: 20px"></div>
+    <% end %>
+  </div>
+
+  <div class="col-lg-6">
+    <h1>Mes locations :</h1>
+      <% @user.boards.each do |board| %>
+      <% board.bookings.each do |booking| %>
+        <div class="card-dashboard" style="width: 18rem;">
+          <%= @user.username %>
+          <%= image_tag booking.board.images, alt: "image", width: 100 %>
+          <div class="card-body">
+            <p class="card-text">Ma board en location : <%= booking.board.name %>
+            <p class="card-text"> Commande du : <%= booking.start_at %> au : <%= booking.end_at %>
+          </div>
+          <p class="btn btn-light">On accepte ou pas ? : <%= booking.state %>
+          <div class ="booking-action">
+            <p class="btn btn-success"><%= link_to "Valider", validated_path(booking), method: :patch %></p>
+            <p class="btn btn-warning"><%= link_to "Refuser", validated_path(booking), method: :patch %></p>
+          </div>
+          <div style="margin: 50px"></div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</body>

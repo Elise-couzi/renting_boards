@@ -4,6 +4,15 @@ class BoardsController < ApplicationController
 
   def index
     @boards = Board.all
+
+    # geoloc
+    @markers = @boards.geocoded.map do |board|
+      {
+        lat: board.latitude,
+        lng: board.longitude,
+        info_window: render_to_string(partial: "shared/info_window", locals: { board: board })
+      }
+    end
   end
 
   def show; end
@@ -24,7 +33,6 @@ class BoardsController < ApplicationController
   end
 
   def edit
-    redirect_to board_path(@board)
   end
 
   def update

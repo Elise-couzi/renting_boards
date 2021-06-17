@@ -6,15 +6,23 @@
       <p><%= image_tag @board.images, alt: "image", width: 400 %></p>
     </div>
     <div class="col-lg-7">
+      <div style="margin: 50px"></div>
       <h1><%= @board.name %></h1>
       <h3><%= @board.price %>€</h3>
       <p style="margin-top: 40px; margin-bottom: 40px"><%= @board.description %></p>
       <p style="margin-top: 40px; margin-bottom: 40px"><%= @board.address %></p>
+
+
+      <% if @board.user == current_user %>
+      <%= link_to 'modifier', edit_board_path(@board), class: "btn-holyboard" %>
+      <%= link_to 'supprimer', board_path(@board), method: :delete, data: { confirm: 'Tu veux supprimer ta board ?' }, class: 'btn btn-danger'%>
+      <% elsif %>
       <p><%= link_to 'I want this awesome board!', new_board_booking_path(@board), class: 'btn-holyboard' %></p>
+      <%end%>
+
+
     </div>
   </div>
 
   <div style="margin: 50px"></div>
 </div>
-
-

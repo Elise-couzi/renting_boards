@@ -1,0 +1,27 @@
+<div class ="container">
+  <div class ="dashboard-container">
+    <div class = "row">
+      <div class ="col-12">
+        <h1> Mes demandes </h1>
+        <% @user.bookings.each do |booking| %>
+      </div>
+    </div>
+    <div class ="row">
+      <div class ="col-4">
+        <div class ="board-car-image">
+          <%= image_tag booking.board.images, alt: "image", width: 100 %>
+        </div>
+        <div class ="btn btn-info">
+          Statut de ma demande effectuée : <%= booking.state %>
+          </div>
+        <div class ="card-content">
+          <h1>La board : <%= booking.board.name %></h1>
+          <p>appartenant a <%= @user.firstname %> <%= @user.lastname %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class ="dashboard-container">
+  </div>
+</div>

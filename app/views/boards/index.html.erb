@@ -1,33 +1,41 @@
-<div class="container">
+
 <div style="margin: 20px"></div>
+<div class="container">
 <h1>Les Boards</h1>
+</div>
+
+<div class="container">
 <p><%= link_to '+ Ajoute une planche à louer', new_board_path, class: 'btn btn-flat' %></p>
+</div>
 
-<div class="row row-cols-lg-3 row-cols-md-2">
-  <% @boards.each do |board| %>
-
-  <div class="row">
-    <%= link_to board_path(board), class: 'link' do %>
-        <div class="col">
-          <div class="card">
-
-            <%= image_tag board.images, :class => 'card-img-top' %>
-            <div class="card-body">
+<div class="container-index">
+  <div class="all-cards">
+      <% @boards.each do |board| %>
+        <div class="card">
+          <%= link_to board_path(board), class: 'link' do %>
+              <%= image_tag board.images, :class => 'card-img-top' %>
               <h5 class="card-title"><%= board.name %></h5>
               <p class="card-text"><%= board.description %></p>
               <p class="card-price"><%= board.price %>€</p>
+              <% if board.user == current_user %>
                 <%= link_to board_path(board), method: :delete, data: { confirm: 'Tu veux supprimer ta board ?' }, class: 'card-remove-link' do %>
                 <i class="fas fa-times" style="color: grey"></i>
                 <%end%>
-            </div>
-
-          </div>
-
-
+                <%= link_to edit_board_path(board), class: "card-edit-link" do %>
+                <i class="fas fa-edit" style="color: grey"></i>
+                <%end%>
+              <%end%>
+          <% end %>
         </div>
-    <% end %>
-    </div>
-  <% end %>
+      <% end %>
   </div>
-  <div style="margin: 50px"></div>
+  <div class="map-index" id="map"
+             style="width: 100%; height: 600px;"
+             data-markers="<%= @markers.to_json %>"
+             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
+
+
+  <div style="margin: 50px"></div>
+

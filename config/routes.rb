@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   end
   get "/dashboard", to: "dashboards#show"
 
-  patch "/validate/:id", to: "bookings#validate"
-  patch "/decline/:id", to: "bookings#decline"
+  patch "/validate/:id", to: "bookings#validate" , as: :validated
+  patch "/decline/:id", to: "bookings#decline" , as: :declined
     
   
 end
