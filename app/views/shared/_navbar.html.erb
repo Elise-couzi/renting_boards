@@ -13,9 +13,14 @@
         <div><%= link_to 'Boards', boards_path, class: 'nav-link' %></div>
       </li>
       <li class="nav-item dropdown">
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://lh3.googleusercontent.com/proxy/emw3eceODUorE8iO5tpaZnNzvA5STaejMza7g-6MkmPQPwqpUnPmD_sn8BEcLSjk0apnzYV0pwUCzLNdRS9p8W_BhozttG4JA5ozO5UdIKQTBcsbk6is6OvNxNwDzZezfo0BH6h-8CsXiNhrvnkW" />
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="/home/elise/code/Elise-couzi/renting_boards7/app/assets/images/brice-de-nice.jpeg" />
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <%= link_to 'Profil', dashboard_path, class: 'dropdown-item' %>
+        <% if user_signed_in? %>
+          <%= link_to 'Dashboard', dashboard_path, class: 'dropdown-item' %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item'  %>
+        <% else %>
+          <%= link_to 'Login', user_session_path, class: 'dropdown-item' %>
+        <% end %>
         </div>
       </li>
     </ul>
