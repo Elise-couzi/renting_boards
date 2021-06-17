@@ -3,3 +3,26 @@
   padding-top: 30px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+.booking-action{
+  position: relative;
+    background-color: inherit;
+    border-top: 1px solid rgba(160,160,160,0.2);
+    padding: 16px 24px;
+}
+.row {
+  
+  display: flex;
+ 
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.bouton-choix {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+  margin-top: 15px;
+}

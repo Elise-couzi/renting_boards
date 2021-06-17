@@ -14,11 +14,27 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = @user
     @booking.board = @board
+    @booking.state = "En attente"
 
     if @booking.save
       redirect_to dashboard_path
     else
       render :new
+    end
+  end
+
+  def validate
+    @booking = Booking.find(params[:id])
+    # @booking.state = "Validée"
+    if @booking.update(state:"Validée")
+    redirect_to dashboard_path
+    end
+  end
+  def decline
+    @booking = Booking.find(params[:id])
+    # @booking.state = "Validée"
+    if @booking.update(state:"Refusée")
+    redirect_to dashboard_path
     end
   end
 

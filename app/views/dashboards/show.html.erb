@@ -1,41 +1,53 @@
-<body >
-<div class="container">
-  <div style="margin: 50px"></div>
 
-<div class="row">
-<div class="col-lg-6">
-  <h1>Mes demandes :</h1>
-  <% @user.bookings.each do |booking| %>
-    <div class="card-dashboard" style="width: 18rem;">
-    <%= @user.firstname %> <%= @user.lastname %>
-    <%= image_tag booking.board.images, alt: "image", width: 100 %>
-    <div class="card-body">
-      <p class="card-text">Ma board : <%= booking.board.name %></p>
-      <p class="card-text"><%= booking.board.description %></p>
+  <div class ="container">
+    <div class ="dashboard-container">
+      <div class = "row">
+        <div class ="col-12">
+          <h1> Mes demandes </h1>
+        </div>
       </div>
-      <p class="btn btn-info">Statut de ma demande effectuée : <%= booking.state %></p>
+      <div class ="row">
+      <% @user.bookings.each do |booking| %>
+        <div class ="col-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%=booking.board.images%>">
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.board.name %></h5>
+              <p class="card-text"><%= booking.board.description %></p>
+              <a class="btn btn-info">Statut de ma demande effectuée : <%= booking.state %></a>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
-    <div style="margin: 20px"></div>
-  <% end %>
-</div>
-
-  <div class="col-lg-6">
-  <h1>Mes locations :</h1>
-    <% @user.boards.each do |board| %>
+        <div class ="dashboard-container">
+      <div class = "row">
+        <div class ="col-12">
+          <h1> Mes locations </h1>
+        </div>
+      </div>
+      <div class ="row">
+      <% @user.boards.each do |board| %>
       <% board.bookings.each do |booking| %>
-      <div class="card-dashboard" style="width: 18rem;">
-      <%= @user.username %>
-      <%= image_tag booking.board.images, alt: "image", width: 100 %>
-      <div class="card-body">
-        <p class="card-text">Ma board en location : <%= booking.board.name %>
-        <p class="card-text"> Commande du : <%= booking.start_at %> au : <%= booking.end_at %>
+        <div class ="col-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%=booking.board.images%>">
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.board.name %></h5>
+              <p class="card-text">Commande du : <%= booking.start_at %> au : <%= booking.end_at %></p>
+              <a class="btn btn-info">Statut de ma demande reçu : <%= booking.state %></a>
+                <div class = "bouton-choix">
+                <p class="btn btn-success"><%= link_to "Valider", validated_path(booking), method: :patch %></p>
+                <p class="btn btn-warning"><%= link_to "Refuser", declined_path(booking), method: :patch %></p>
+                </div>
+              
+            </div>
+          </div>
         </div>
-        <p class="btn btn-light">Statut de ma demande reçue : <%= booking.state %>
-        </div>
-        <div style="margin: 50px"></div>
-      <% end %>
-    <% end %>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+    
   </div>
-
-</div>
-</body>
