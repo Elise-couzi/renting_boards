@@ -33,7 +33,6 @@ class BoardsController < ApplicationController
   end
 
   def edit
-    redirect_to board_path(@board)
   end
 
   def update
