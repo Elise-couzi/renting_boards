@@ -1,5 +1,18 @@
 
 <div style="margin: 20px"></div>
+
+<h3 class="text-center">Recherche la planche de tes rêves</h3>
+<div class="container">
+<%= form_tag boards_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Trouve une planche"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+</div>
+
 <div class="container">
 <h1>Les Boards</h1>
 </div>
