@@ -15,6 +15,11 @@
           <%= link_to board_path(board), class: 'link' do %>
               <%= image_tag board.images, :class => 'card-img-top' %>
               <h5 class="card-title"><%= board.name %></h5>
+              <% if board.dispo %>
+              <p>C'est dispo mec!</p> 
+              <% else %>
+              <p>C'est pas dispo mec!</p>
+              <% end %>
               <p class="card-text"><%= board.description %></p>
               <p class="card-price"><%= board.price %>€</p>
               <% if board.user == current_user %>
