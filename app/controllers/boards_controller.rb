@@ -3,8 +3,12 @@ class BoardsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @boards = Board.all
-
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query"
+      @boards = Board.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @boards = Board.all
+    end
     # geoloc
     @markers = @boards.geocoded.map do |board|
       {
