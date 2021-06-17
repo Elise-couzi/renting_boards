@@ -73,12 +73,13 @@
     object-fit: contain;
 }
 
-.map-index {
+.mapboxgl-map.map-index {
   position: sticky;
   top: 0;
-  height: 300px;
-  width: 600px;
+  height: 600px;
+  width: 100%;
   margin-top: 10px;
+
 }
 
 // Smallest device
