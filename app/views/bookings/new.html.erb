@@ -13,7 +13,9 @@
           <%= simple_form_for [ @board, @booking ] do |f| %>
           <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker"} %>
           <%= f.input :end_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.button :submit, "On boarding", class: "btn btn-secondary" %>
+
+          <%= f.button :submit, "On boarding", class: "btn-holyboard" %>
+
           <% end %>
         </div>
     </div>

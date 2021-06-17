@@ -1,44 +1,61 @@
-<%# <%= stylesheet_link_tag 'pages/sign_up' %> 
-
 <div class="container">
-  <center><h2>Crée ton compte!</h2></center>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <h2>Crée ton compte!</h2>
 
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+        <div class="form-inputs">
+        <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      label: "Ton adresse mail",
+                      placeholder: "bricedenice@mail.com",
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :password,
+                      required: true,
+                      label: "Choisis un mot de passe",
+                      placeholder: "********",
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      label: "Confirmes ton mot de passe",
+                      placeholder: "********",
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :firstname,
+                      required: true,
+                      label: "Ton prénom",
+                      placeholder: "Brice",
+                      input_html: { autocomplete: "your firstname" } %>
+          <%= f.input :lastname,
+                      required: true,
+                      label: "Ton nom",
+                      placeholder: "De Nice",
+                      input_html: { autocomplete: "your lastname" } %>
+          <%= f.input :username,
+                      required: true,
+                      label: "Choisis le meilleur pseudo",
+                      placeholder: "Surfman",
+                      input_html: { autocomplete: "Your nickname" } %>
+          <%= f.input :address,
+                      required: true,
+                      label: "Ton adresse",
+                      placeholder: "110 avenue de la planche 06000 NICE",
+                      input_html: { autocomplete: "your address" } %>
+        </div>
 
-    <div class="form-inputs">
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :firstname,
-                  required: true,
-                  input_html: { autocomplete: "your firstname" } %>
-      <%= f.input :lastname,
-                  required: true,
-                  input_html: { autocomplete: "your lastname" } %>
-      <%= f.input :username,
-                  required: true,
-                  input_html: { autocomplete: "Your nickname" } %>
-      <%= f.input :address,
-                  required: true,
-                  input_html: { autocomplete: "your address" } %>
-    </div>
-
-    <div class="form-actions">
-      <button type="button" class="btn btn-info"><%= f.button :submit, "S'inscrire" %></button>
-    </div>
-  <% end %>
-    
-    <div class="btn-login">
-      <button type="button" class="btn btn-light"><%= render  "devise/shared/links" %></button>
-    </div>
+        <div class="form-actions">
+          
+            <button type="button" class="btn-holyboard"><%= f.button :submit, "S'inscrire"%></button>
+          
+        </div>
+      <% end %>
+        
+        <div class="btn-login">
+          <%= render  "devise/shared/links" %>
+        </div>
+      </div>
+  </div>
 </div>
