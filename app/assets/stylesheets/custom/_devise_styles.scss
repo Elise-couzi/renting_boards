@@ -11,3 +11,21 @@
   font-weight: bolder;
   text-decoration: none;
 }
+
+a {
+  text-align: center;
+  margin: 0 auto;
+  padding: 6px;
+  display: inline-block;
+  color: #16A8AD;
+}
+
+a:hover {
+  color: #13898d;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.cancel {
+  padding: 28px 0;
+}
