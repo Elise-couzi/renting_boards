@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = "name ILIKE :query OR description ILIKE :query"
+      sql_query = "name ILIKE :query OR description ILIKE :query OR category ILIKE :query"
       @boards = Board.where(sql_query, query: "%#{params[:query]}%")
     else
       @boards = Board.all
@@ -56,6 +56,6 @@ class BoardsController < ApplicationController
   end
 
   def board_params
-    params.require(:board).permit(:name, :price, :description, :images)
+    params.require(:board).permit(:name, :price, :description, :images, :address, :category)
   end
 end
