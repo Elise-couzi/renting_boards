@@ -45,9 +45,9 @@
 <div class="cancel">
 <h4>Supprimer mon compte</h4>
 
-<p>Marre de la ride? <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Veux tu toujours supprimer ton compte?" }, method: :delete %></p>
+<p>Marre de la ride? <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Veux tu toujours supprimer ton compte?" }, method: :delete, class: "link-devise" %></p>
 
-<%= link_to "Retour au profil", :back %>
+<%= link_to "Retour au profil", :back, class: "link-devise" %>
 </div>
 
 
