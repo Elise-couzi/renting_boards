@@ -49,16 +49,15 @@
   <div id="menu1" class="tab-pane fade">
     <!-- Mes boards en demande de location -->
     <div style="margin: 50px"></div>
-    <div class ="row">
+    <div class="all-cards-dashboard">
       <% @user.boards.each do |board| %>
+
       <% board.bookings.each do |booking| %>
-        <div class ="col-4">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="<%=booking.board.images%>">
-            <div class="card-body">
+      <div class="card">
+            <img class='card-img-top-dashboard' src="<%=booking.board.images%>">
               <h5 class="card-title"><%= booking.board.name %></h5>
               <p class="card-text">Location du <%= booking.start_at.strftime("%d/%m/%Y") %> au <%= booking.end_at.strftime("%d/%m/%Y") %></p>
-              <a class="btn btn-info">Statut de ma demande reçu : <%= booking.state %></a>
+              <a class="btn btn-info"><%= booking.state %></a>
                 <% if booking.state == "en attente" %>
                 <div class = "bouton-choix">
                 <p class="btn btn-success"><%= link_to "Valider", validated_path(booking), method: :patch %></p>
@@ -66,32 +65,28 @@
                 </div>
                 <% else %>
                 <% end %>
-
-            </div>
-          </div>
         </div>
         <% end %>
+
         <% end %>
-      </div>
+    </div>
       <div style="margin: 50px"></div>
   </div>
 
   <div id="menu2" class="tab-pane fade">
     <!-- Les boards que j'aimerai tester -->
     <div style="margin: 50px"></div>
+    <div class="all-cards-dashboard">
       <% @user.bookings.each do |booking| %>
-        <div class ="col-4">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="<%=booking.board.images%>">
-            <div class="card-body">
+        <div class="card">
+            <img class="card-img-top-dashboard" src="<%=booking.board.images%>">
               <h5 class="card-title"><%= booking.board.name %></h5>
               <p class="card-text"><%= booking.board.description %></p>
-              <a class="btn btn-info">Statut de ma demande effectuée : <%= booking.state %></a>
-            </div>
-          </div>
+              <a class="btn btn-info"><%= booking.state %></a>
         </div>
         <% end %>
         <div style="margin: 50px"></div>
+  </div>
   </div>
 </div>
 <!-- Fin Nav tabs content-->
