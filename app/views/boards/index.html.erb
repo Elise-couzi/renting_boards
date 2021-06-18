@@ -1,6 +1,3 @@
-
-<div style="margin: 20px"></div>
-
 <h3 class="text-center">Recherche la planche de tes rêves</h3>
 <div class="container">
 <%= form_tag boards_path, method: :get do %>
@@ -9,9 +6,11 @@
     class: "form-control",
     placeholder: "Trouve une planche"
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= submit_tag "Search", class: "btn-holyboard" %>
 <% end %>
 </div>
+
+<div style="margin: 20px"></div>
 
 <div class="container">
 <h1>Les Boards</h1>
@@ -29,7 +28,7 @@
               <%= image_tag board.images, :class => 'card-img-top' %>
               <h5 class="card-title"><%= board.name %></h5>
               <% if board.dispo %>
-              <p>C'est dispo mec!</p> 
+              <p>C'est dispo mec!</p>
               <% else %>
               <p>C'est pas dispo mec!</p>
               <% end %>

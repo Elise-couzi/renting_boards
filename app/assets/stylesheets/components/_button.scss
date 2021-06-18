@@ -1,34 +1,84 @@
 .btn-holyboard {
-  background-color: #16A8AD;
+  color: #17a8ad;
+  border: 1px solid #17a8ad;
   width: 100%;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
+  font-weight: lighter;
+  padding: 8px 24px;
+  border-radius: 50px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
 
 .btn-holyboard:hover {
-  background-color: #13898d;
+  color: #17a8ad;
+  opacity: 1;
 }
 
 input.btn {
-  color: white;
+  color: #17a8ad;
   font-weight: lighter;
   font-size: 18px;
 }
 
 input.btn-holyboard {
-  color: white;
+  color: #17a8ad;
   font-weight: lighter;
   font-size: 18px;
 }
 
 input.btn:hover {
-  color: white;
+  color: #17a8ad;
   font-weight: lighter;
   font-size: 18px;
 }
 
 a.btn-holyboard {
  text-decoration: none;
- color: white;
+ color: #17a8ad;
+}
+
+.btn-holyboard-red {
+  color: #c22821;
+  border: 1px solid #c22821;
+  width: 100%;
+  font-weight: lighter;
+  padding: 8px 24px;
+  border-radius: 50px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.btn-holyboard-red:hover {
+  color: #c22821;
+  opacity: 1;
+}
+
+input.btn-holyboard-red {
+  color: #c22821;
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+a.btn-holyboard-red {
+ text-decoration: none;
+ color: #c22821;
+}
+
+
+
+
+
+.btn-ghost {
+  color: white;
+  border: 1px solid white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  color: white;
+  opacity: 1;
 }
