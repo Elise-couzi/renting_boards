@@ -83,7 +83,7 @@
               <h5 class="card-title"><%= booking.board.name %></h5>
               <p class="card-text">Location du <%= booking.start_at.strftime("%d/%m/%Y") %> au <%= booking.end_at.strftime("%d/%m/%Y") %></p>
               <a class="btn btn-info"><%= booking.state %></a>
-                <% if booking.state == "en attente" %>
+                <% if booking.state == "En attente" %>
                 <div class = "bouton-choix">
                 <p class="btn-holyboard"><%= link_to "Valider", validated_path(booking), method: :patch %></p>
                 <p class="btn-holyboard-red"><%= link_to "Refuser", declined_path(booking), method: :patch %></p>
