@@ -1,33 +1,32 @@
+<div class="container">
 
-  <div class ="container">
-    <div class ="dashboard-container">
-      <div class = "row">
-        <div class ="col-12">
-          <h1> Mes demandes </h1>
-        </div>
-      </div>
-      <div class ="row">
-      <% @user.bookings.each do |booking| %>
-        <div class ="col-4">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="<%=booking.board.images%>">
-            <div class="card-body">
-              <h5 class="card-title"><%= booking.board.name %></h5>
-              <p class="card-text"><%= booking.board.description %></p>
-              <a class="btn btn-info">Statut de ma demande effectuée : <%= booking.state %></a>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    </div>
-        <div class ="dashboard-container">
-      <div class = "row">
-        <div class ="col-12">
-          <h1> Mes locations </h1>
-        </div>
-      </div>
-      <div class ="row">
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a class="nav-link" data-toggle="tab" href="#home">Profil</a>
+  </li>
+  <li>
+    <a class="nav-link" data-toggle="tab" href="#menu1">Mes boards</a>
+  </li>
+  <li>
+    <a class="nav-link" data-toggle="tab" href="#menu2">Mes locations</a>
+  </li>
+</ul>
+<!-- Fin Nav tabs -->
+
+<!-- Nav tabs content-->
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <!-- Mon profil-->
+    <div style="margin: 50px"></div>
+
+    <div style="margin: 50px"></div>
+  </div>
+
+  <div id="menu1" class="tab-pane fade">
+    <!-- Mes boards-->
+    <div style="margin: 50px"></div>
+    <div class ="row">
       <% @user.boards.each do |board| %>
       <% board.bookings.each do |booking| %>
         <div class ="col-4">
@@ -41,13 +40,34 @@
                 <p class="btn btn-success"><%= link_to "Valider", validated_path(booking), method: :patch %></p>
                 <p class="btn btn-warning"><%= link_to "Refuser", declined_path(booking), method: :patch %></p>
                 </div>
-              
+
             </div>
           </div>
         </div>
         <% end %>
         <% end %>
       </div>
-    </div>
-    
+      <div style="margin: 50px"></div>
   </div>
+
+  <div id="menu2" class="tab-pane fade">
+    <!-- Mes locations-->
+    <div style="margin: 50px"></div>
+      <% @user.bookings.each do |booking| %>
+        <div class ="col-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%=booking.board.images%>">
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.board.name %></h5>
+              <p class="card-text"><%= booking.board.description %></p>
+              <a class="btn btn-info">Statut de ma demande effectuée : <%= booking.state %></a>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <div style="margin: 50px"></div>
+  </div>
+</div>
+<!-- Fin Nav tabs content-->
+
+</div>
