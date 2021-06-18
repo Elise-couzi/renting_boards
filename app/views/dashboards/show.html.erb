@@ -3,7 +3,7 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
   <li class="active">
-    <a class="nav-link" data-toggle="tab" href="#home">Profil</a>
+    <a class="nav-link" data-toggle="tab" href="#profil">Profil</a>
   </li>
   <li>
     <a class="nav-link" data-toggle="tab" href="#menu1">Demandes de location sur mes boards</a>
@@ -16,9 +16,32 @@
 
 <!-- Nav tabs content-->
 <div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
+  <div id="profil" class="tab-pane fade active show">
     <!-- Mon profil-->
     <div style="margin: 50px"></div>
+    <div class="container">
+    <p><%= link_to '+ Ajoute une planche à louer', new_board_path, class: 'btn btn-flat' %></p>
+    <h1>Mes boards</h1>
+    </div>
+
+    <div class="all-cards-dashboard">
+      <% @user.boards.each do |board| %>
+        <div class="card">
+          <%= link_to board_path(board), class: 'link' do %>
+              <%= image_tag board.images, :class => 'card-img-top-dashboard' %>
+              <h6 class="card-title"><%= board.name %></h6>
+              <p class="card-text"><%= board.description %></p>
+              <p class="card-price"><%= board.price %>€</p>
+                <%= link_to board_path(board), method: :delete, data: { confirm: 'Tu veux supprimer ta board ?' }, class: 'card-remove-link' do %>
+                <i class="fas fa-times" style="color: grey"></i>
+                <%end%>
+                <%= link_to edit_board_path(board), class: "card-edit-link" do %>
+                <i class="fas fa-edit" style="color: grey"></i>
+                <%end%>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 
     <div style="margin: 50px"></div>
   </div>

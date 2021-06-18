@@ -16,6 +16,8 @@
       <% if @board.user == current_user %>
       <%= link_to 'modifier', edit_board_path(@board), class: "btn-holyboard" %>
       <%= link_to 'supprimer', board_path(@board), method: :delete, data: { confirm: 'Tu veux supprimer ta board ?' }, class: 'btn-holyboard-red'%>
+      <div style="margin: 50px"></div>
+      <p><%= link_to 'Voir mes boards', dashboard_path, class: "btn-holyboard" %></p>
       <% elsif %>
       <p><%= link_to 'I want this awesome board!', new_board_booking_path(@board), class: 'btn-holyboard' %></p>
       <%end%>

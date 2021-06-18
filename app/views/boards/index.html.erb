@@ -12,14 +12,6 @@
 
 <div style="margin: 20px"></div>
 
-<div class="container">
-<h1>Les Boards</h1>
-</div>
-
-<div class="container">
-<p><%= link_to '+ Ajoute une planche à louer', new_board_path, class: 'btn btn-flat' %></p>
-</div>
-
 <div class="container-index">
   <div class="all-cards">
       <% @boards.each do |board| %>
