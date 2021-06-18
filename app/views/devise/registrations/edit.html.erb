@@ -1,5 +1,7 @@
 <div class="container">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+  <h2>Modifier mon profil <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -11,28 +13,44 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
+    <%= f.input :address,
+                          required: false,
+                          label: "Ton adresse",
+                          placeholder: "110 avenue de la planche 06000 NICE",
+                          input_html: { autocomplete: "your address" } %>
     <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                hint: "Ne fait rien si tu veux pas changer ton mot de passe",
                 required: false,
+                label: "Nouveau mot de passe?",
+                placeholder: "********",
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
+                label: "Confirme ton nouveau mot de passe",
+                placeholder: "********",
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "Entre ici ton mot de passe actuel pour valider les changements",
+                label: "Ton mot de passe actuel",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :photo, as: :file %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Valider les modifications", class: "btn-holyboard" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<div class="cancel">
+<h4>Supprimer mon compte</h4>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Marre de la ride? <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Veux tu toujours supprimer ton compte?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Retour au profil", :back %>
+</div>
 
+
+</div>
+</div>
 </div>

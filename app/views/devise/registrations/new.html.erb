@@ -21,7 +21,7 @@
                       input_html: { autocomplete: "new-password" } %>
           <%= f.input :password_confirmation,
                       required: true,
-                      label: "Confirmes ton mot de passe",
+                      label: "Confirme ton mot de passe",
                       placeholder: "********",
                       input_html: { autocomplete: "new-password" } %>
           <%= f.input :firstname,
@@ -44,6 +44,7 @@
                       label: "Ton adresse",
                       placeholder: "110 avenue de la planche 06000 NICE",
                       input_html: { autocomplete: "your address" } %>
+          <%= f.input :photo, as: :file %>
         </div>
 
         <div class="form-actions">

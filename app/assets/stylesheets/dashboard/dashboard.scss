@@ -26,3 +26,11 @@
 	align-content: stretch;
   margin-top: 15px;
 }
+.card-profil {
+  display: flex;
+  flex-direction: row;
+}
+.profil-avatar {
+  padding: 20px;
+  margin-right: 60px;
+}
