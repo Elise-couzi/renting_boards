@@ -6,10 +6,10 @@
     <a class="nav-link" data-toggle="tab" href="#home">Profil</a>
   </li>
   <li>
-    <a class="nav-link" data-toggle="tab" href="#menu1">Mes boards</a>
+    <a class="nav-link" data-toggle="tab" href="#menu1">Demandes de location sur mes boards</a>
   </li>
   <li>
-    <a class="nav-link" data-toggle="tab" href="#menu2">Mes locations</a>
+    <a class="nav-link" data-toggle="tab" href="#menu2">Les boards que j'aimerai tester</a>
   </li>
 </ul>
 <!-- Fin Nav tabs -->
@@ -24,7 +24,7 @@
   </div>
 
   <div id="menu1" class="tab-pane fade">
-    <!-- Mes boards-->
+    <!-- Mes boards en demande de location -->
     <div style="margin: 50px"></div>
     <div class ="row">
       <% @user.boards.each do |board| %>
@@ -54,7 +54,7 @@
   </div>
 
   <div id="menu2" class="tab-pane fade">
-    <!-- Mes locations-->
+    <!-- Les boards que j'aimerai tester -->
     <div style="margin: 50px"></div>
       <% @user.bookings.each do |booking| %>
         <div class ="col-4">
