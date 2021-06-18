@@ -34,12 +34,15 @@
             <img class="card-img-top" src="<%=booking.board.images%>">
             <div class="card-body">
               <h5 class="card-title"><%= booking.board.name %></h5>
-              <p class="card-text">Commande du : <%= booking.start_at %> au : <%= booking.end_at %></p>
+              <p class="card-text">Location du <%= booking.start_at.strftime("%d/%m/%Y") %> au <%= booking.end_at.strftime("%d/%m/%Y") %></p>
               <a class="btn btn-info">Statut de ma demande reçu : <%= booking.state %></a>
+                <% if booking.state == "en attente" %>
                 <div class = "bouton-choix">
                 <p class="btn btn-success"><%= link_to "Valider", validated_path(booking), method: :patch %></p>
                 <p class="btn btn-warning"><%= link_to "Refuser", declined_path(booking), method: :patch %></p>
                 </div>
+                <% else %>
+                <% end %>
 
             </div>
           </div>
