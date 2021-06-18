@@ -18,7 +18,7 @@
 <div class="tab-content">
   <div id="profil" class="tab-pane fade active show">
     <!-- Mon profil-->
-    card-profil
+    
     <div class="row justify-content-center">
       <div class="col-12 col-lg-6">
         <div class="dashboard-container">
@@ -29,9 +29,9 @@
               </div>
               <div class="profil">
               <h1>Mon profil</h1>
-                <h3><strong><%= @user.username %></strong></h3>
+                
                   <p><%= @user.firstname %> <%= @user.lastname %></p>
-                  <p>Mon address : à rajouter<%= @user.address %></p>
+                  
                   <p>Mon email : <%= @user.email %></p>
 
                   <%= link_to edit_user_registration_path, class: "card-edit-link" do %>
