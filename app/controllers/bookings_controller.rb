@@ -25,8 +25,11 @@ class BookingsController < ApplicationController
 
   def validate
     @booking = Booking.find(params[:id])
+    @board = @booking.board
     # @booking.state = "Validée"
     if @booking.update(state:"Validée")
+    @board.dispo = false
+    @board.save
     redirect_to dashboard_path
     end
   end
