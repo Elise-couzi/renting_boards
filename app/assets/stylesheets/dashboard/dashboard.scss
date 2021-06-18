@@ -9,14 +9,7 @@
     border-top: 1px solid rgba(160,160,160,0.2);
     padding: 16px 24px;
 }
-.row {
-  
-  display: flex;
- 
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
+
 .bouton-choix {
   display: flex;
 	flex-direction: row;
@@ -26,6 +19,7 @@
 	align-content: stretch;
   margin-top: 15px;
 }
+
 .card-profil {
   display: flex;
   flex-direction: row;
@@ -34,3 +28,4 @@
   padding: 20px;
   margin-right: 60px;
 }
+

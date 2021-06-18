@@ -12,14 +12,6 @@
 
 <div style="margin: 20px"></div>
 
-<div class="container">
-<h1>Les Boards</h1>
-</div>
-
-<div class="container">
-<p><%= link_to '+ Ajoute une planche à louer', new_board_path, class: 'btn btn-flat' %></p>
-</div>
-
 <div class="container-index">
   <div class="all-cards">
       <% @boards.each do |board| %>
@@ -33,6 +25,7 @@
               <p>C'est pas dispo mec!</p>
               <% end %>
               <p class="card-text"><%= board.description %></p>
+              <p class="text-category"><%= board.category %></p>
               <p class="card-price"><%= board.price %>€</p>
               <% if board.user == current_user %>
                 <%= link_to board_path(board), method: :delete, data: { confirm: 'Tu veux supprimer ta board ?' }, class: 'card-remove-link' do %>

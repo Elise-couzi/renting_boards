@@ -1,54 +1,24 @@
+<div class="container">
 
-  <div class ="container">
-    <div class ="dashboard-container">
-      <div class = "row">
-        <div class ="col-12">
-          <h1> Mes demandes </h1>
-        </div>
-      </div>
-      <div class ="row">
-      <% @user.bookings.each do |booking| %>
-        <div class ="col-4">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="<%=booking.board.images%>">
-            <div class="card-body">
-              <h5 class="card-title"><%= booking.board.name %></h5>
-              <p class="card-text"><%= booking.board.description %></p>
-              <a class="btn btn-info">Statut de ma demande effectuée : <%= booking.state %></a>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    </div>
-        <div class ="dashboard-container">
-      <div class = "row">
-        <div class ="col-12">
-          <h1> Mes locations </h1>
-        </div>
-      </div>
-      <div class ="row">
-      <% @user.boards.each do |board| %>
-      <% board.bookings.each do |booking| %>
-        <div class ="col-4">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="<%=booking.board.images%>">
-            <div class="card-body">
-              <h5 class="card-title"><%= booking.board.name %></h5>
-              <p class="card-text">Commande du : <%= booking.start_at %> au : <%= booking.end_at %></p>
-              <a class="btn btn-info">Statut de ma demande reçu : <%= booking.state %></a>
-                <div class = "bouton-choix">
-                <p class="btn btn-success"><%= link_to "Valider", validated_path(booking), method: :patch %></p>
-                <p class="btn btn-warning"><%= link_to "Refuser", declined_path(booking), method: :patch %></p>
-                </div>
-              
-            </div>
-          </div>
-        </div>
-        <% end %>
-        <% end %>
-      </div>
-    </div>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a class="nav-link" data-toggle="tab" href="#profil">Profil</a>
+  </li>
+  <li>
+    <a class="nav-link" data-toggle="tab" href="#menu1">Demandes de location sur mes boards</a>
+  </li>
+  <li>
+    <a class="nav-link" data-toggle="tab" href="#menu2">Les boards que j'aimerai tester</a>
+  </li>
+</ul>
+<!-- Fin Nav tabs -->
+
+<!-- Nav tabs content-->
+<div class="tab-content">
+  <div id="profil" class="tab-pane fade active show">
+    <!-- Mon profil-->
+    card-profil
     <div class="row justify-content-center">
       <div class="col-12 col-lg-6">
         <div class="dashboard-container">
@@ -73,8 +43,80 @@
       </div>
       
     </div>
-    
+    <div style="margin: 50px"></div>
+    <div class="container">
+    <p><%= link_to '+ Ajoute une planche à louer', new_board_path, class: 'btn btn-flat' %></p>
+    <h1>Mes boards</h1>
+    </div>
 
+    <div class="all-cards-dashboard">
+      <% @user.boards.each do |board| %>
+        <div class="card">
+          <%= link_to board_path(board), class: 'link' do %>
+              <%= image_tag board.images, :class => 'card-img-top-dashboard' %>
+              <h6 class="card-title"><%= board.name %></h6>
+              <p class="card-text"><%= board.description %></p>
+              <p class="card-price"><%= board.price %>€</p>
+                <%= link_to board_path(board), method: :delete, data: { confirm: 'Tu veux supprimer ta board ?' }, class: 'card-remove-link' do %>
+                <i class="fas fa-times" style="color: grey"></i>
+                <%end%>
+                <%= link_to edit_board_path(board), class: "card-edit-link" do %>
+                <i class="fas fa-edit" style="color: grey"></i>
+                <%end%>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 
+    <div style="margin: 50px"></div>
+  </div>
+
+  <div id="menu1" class="tab-pane fade">
+    <!-- Mes boards en demande de location -->
+    <div style="margin: 50px"></div>
+    <div class="all-cards-dashboard">
+      <% @user.boards.each do |board| %>
+
+      <% board.bookings.each do |booking| %>
+      <div class="card">
+            <img class='card-img-top-dashboard' src="<%=booking.board.images%>">
+              <h5 class="card-title"><%= booking.board.name %></h5>
+              <p class="card-text">Location du <%= booking.start_at.strftime("%d/%m/%Y") %> au <%= booking.end_at.strftime("%d/%m/%Y") %></p>
+              <a class="btn btn-info"><%= booking.state %></a>
+                <% if booking.state == "en attente" %>
+                <div class = "bouton-choix">
+                <p class="btn-holyboard"><%= link_to "Valider", validated_path(booking), method: :patch %></p>
+                <p class="btn-holyboard-red"><%= link_to "Refuser", declined_path(booking), method: :patch %></p>
+                </div>
+                <% else %>
+                <% end %>
+        </div>
+        <% end %>
+
+        <% end %>
+    </div>
+
+      <div style="margin: 50px"></div>
+  </div>
+
+  <div id="menu2" class="tab-pane fade">
+    <!-- Les boards que j'aimerai tester -->
+    <div style="margin: 50px"></div>
+    <div class="all-cards-dashboard">
+      <% @user.bookings.each do |booking| %>
+        <div class="card">
+            <img class="card-img-top-dashboard" src="<%=booking.board.images%>">
+              <h5 class="card-title"><%= booking.board.name %></h5>
+              <p class="card-text">Location du <%= booking.start_at.strftime("%d/%m/%Y") %> au <%= booking.end_at.strftime("%d/%m/%Y") %></p>
+              <p class="card-text"><%= booking.board.description %></p>
+              <a class="btn btn-info"><%= booking.state %></a>
+        </div>
+        <% end %>
+        <div style="margin: 50px"></div>
+  </div>
 
   </div>
+</div>
+<!-- Fin Nav tabs content-->
+
+</div>
